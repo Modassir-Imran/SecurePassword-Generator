@@ -132,12 +132,19 @@ function calcStrength() {
     if (symbolsCheck.checked) hasSymbol = true;
 
     if (hasUpper && hasLower && hasNumber && hasSymbol && passwordLength >= 8) {
-        setIndicator1("#d21a1a");
-        setIndicator2("#df612a");
-        setIndicator3("#c98f1f");
-        setIndicator4("#94bf19");
-        setIndicator5("#58ba1a");
-        setIndicator6("#4CAF50")
+        setIndicator1("#399918");
+        setIndicator2("#399918");
+        setIndicator3("#399918");
+        setIndicator4("#399918");
+        setIndicator5("#399918");
+        setIndicator6("#399918")
+
+        // setIndicator1("#d21a1a");
+        // setIndicator2("#df612a");
+        // setIndicator3("#c98f1f");
+        // setIndicator4("#94bf19");
+        // setIndicator5("#58ba1a");
+        // setIndicator6("#4CAF50")
     } else if (hasUpper && hasLower && (hasNumber ||hasSymbol) && passwordLength >= 6) {
         setIndicator1("#d21a1a");
         setIndicator2("#df612a");
@@ -168,7 +175,9 @@ async function copyContent() {
         // }
         // for copy to clipboard
         await navigator.clipboard.writeText(passwordDisplay.value);
-        copyMsg.innerText = "Copied";
+        copyMsg.innerText = " Copied ";
+
+
         // throw error if password is empty
         
     }
@@ -176,9 +185,11 @@ async function copyContent() {
     catch (error) {
         copyMsg.innerText = error;
     }
-    copyMsg.classList.add("active");
+    copyMsg.classList.remove("opacity-0")
+    copyMsg.classList.add("opacity-100");
     setTimeout(() => {
-        copyMsg.classList.remove("active");
+        copyMsg.classList.remove("opacity-100")
+        copyMsg.classList.add("opacity-0")
     }, 2000);
 }
 function shufflePassword(array){
